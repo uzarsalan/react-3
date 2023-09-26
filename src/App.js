@@ -1,8 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 import { Button } from "./components/Button";
 
 function App() {
+  const [cart, setCart] = useState([]);
   const menu = [
     {
       name: "Lagman",
@@ -12,10 +14,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Button />
+        Корзина:
+        <ul>
+          {cart.map((item) => (
+            <li>{item.name}</li>
+          ))}
+        </ul>
+        Меню:
         {menu.map((item) => (
-          <div>{item.name}</div>
+          <div className="menu-item">
+            <div>{item.name}</div>
+            <Button color="red" onClick={() => setCart([...cart, item])}>
+              Купить
+            </Button>
+          </div>
         ))}
         <p>
           Edit <code>src/App.js</code> and save to reload.
