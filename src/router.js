@@ -7,24 +7,27 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/catalog",
-    element: <Outlet />,
     children: [
-      { path: "", element: <App /> },
+      { path: "", element: <Catalog /> },
       {
-        path: ":name",
-        element: <CatalogItem />,
+        path: "/catalog",
+        element: <Outlet />,
+        children: [
+          { path: "", element: <App /> },
+          {
+            path: ":name",
+            element: <CatalogItem />,
+          },
+        ],
+      },
+      {
+        path: "/cart",
+        element: (
+          <div>
+            <h1>Cart</h1>
+          </div>
+        ),
       },
     ],
-  },
-  {
-    path: "/cart",
-    element: (
-      <div>
-        <h1>Cart</h1>
-      </div>
-    ),
   },
 ]);
