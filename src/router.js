@@ -2,6 +2,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { Catalog } from "./components/Catalog";
 import { CatalogItem } from "./components/CatalogItem";
+import { OrderForm } from "./components/OrderForm";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
           </div>
         ),
       },
+      {
+        path: '/order',
+        element: <OrderForm />
+      }
     ],
   },
 ]);

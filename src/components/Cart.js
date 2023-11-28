@@ -16,6 +16,7 @@ export function Cart() {
         ))}
       </div>
       <button onClick={clearCart}>Очистить</button>
+      <a href="/order">Заказать</a>
     </div>
   );
 }
